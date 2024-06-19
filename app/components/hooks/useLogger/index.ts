@@ -48,6 +48,7 @@ export const useLogger = ({
 }: UseEventLoggerOptions = {}) => {
   const router = usePathname();
 
+  // 默认的埋点参数
   const getEventParams = useCallback((): Partial<EventSchema> => {
     const route = router || '';
 
@@ -61,6 +62,7 @@ export const useLogger = ({
     };
   }, [router]);
 
+  // 埋点方法 在路由变化时会执行埋点事件
   const log = useCallback(
     ({ scene, target, module }: LogParams) => {
       if (!window?.gtag) return;
@@ -75,22 +77,22 @@ export const useLogger = ({
       });
 
       window.gtag('event', EVENT_NAME, {
-        ...getEventParams(),
+        ...getEventParams(), //默认参数
         target,
-        module,
-        scene: EventSceneEnum[scene],
+        module, //模块
+        scene: EventSceneEnum[scene], //点击、曝光、触发
       });
     },
     [getEventParams],
   );
-
+  // 曝光埋点
   useInViewWatch(views, {
     standing: 500,
     onStanding: ({ module, target } = {}, _standing) => {
       log({ scene: 'view', module, target });
     },
   });
-
+  // 点击埋点
   useClickWatch(clicks, {
     debounce: 500,
     onClick: ({ module, target } = {}) => {

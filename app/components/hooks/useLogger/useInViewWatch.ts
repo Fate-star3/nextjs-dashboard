@@ -61,31 +61,36 @@ export const useInViewWatch: UseInViewWatch = (
     >(),
   );
 
+  // 处理元素进入和离开视口的逻辑。
   const handleItemObserver = (
     item: TargetItem,
     entry: IntersectionObserverEntry,
   ) => {
     const current = Date.now();
-    const { enterTime = 0, eventTimer } = timerWeakMap.current.get(item.ref) || {};
+    const { enterTime = 0, eventTimer } =
+      timerWeakMap.current.get(item.ref) || {};
     const standingTime = current - enterTime;
 
     clearTimeout(eventTimer);
     const param = omit(item, 'ref');
-
+    //   进入页面
     if (entry.isIntersecting) {
       let timer;
       if (standing && onStanding) {
         timer = setTimeout(() => {
-          const { enterTime = 0} = timerWeakMap.current.get(item.ref) || {};
+          const { enterTime = 0 } = timerWeakMap.current.get(item.ref) || {};
+          //   视图停留时间
           onStanding?.(param, Date.now() - enterTime);
         }, standing);
       }
+
       onEnter?.({ target: item.target, module: item.module });
       timerWeakMap.current.set(item.ref, {
         enterTime: current,
         eventTimer: timer,
       });
     } else if (enterTime) {
+      // 离开页面
       onLeave?.(param, standingTime);
       timerWeakMap.current.delete(item.ref);
     }
@@ -109,6 +114,7 @@ export const useInViewWatch: UseInViewWatch = (
       weakMap.set(item.ref, item);
     });
 
+    // 创建观察者实例
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
