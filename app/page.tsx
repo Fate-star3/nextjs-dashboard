@@ -9,11 +9,10 @@ import { ClickLog } from '@/app/components/log/ClickLog';
 export default function Page() {
   return (
     <RootPage>
-        
       <ViewLog module="Home" target="dashboard">
         <main className="flex min-h-screen flex-col p-6">
           <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
-            <Link href="/">
+            <Link href="/dashboard">
               <AcmeLogo />
             </Link>
           </div>
@@ -31,7 +30,7 @@ export default function Page() {
               </p>
               <ClickLog module="List" target="/dashboard">
                 <Link
-                  href="/dashboard"
+                  href="/login"
                   className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
                 >
                   <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />

@@ -3,6 +3,13 @@ import { inter } from '@/app/ui/fonts';
 import NextHead from 'next/head';
 import Script from 'next/script';
 import { HTMLAttributes, PropsWithChildren } from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Acme Dashboard',
+  description: 'The official Next.js Course Dashboard, built with App Router.',
+  metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
+};
 type PageProps = PropsWithChildren<any> & HTMLAttributes<HTMLDivElement>;
 export default function RootLayout({ children }: PageProps) {
   return (
