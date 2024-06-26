@@ -41,6 +41,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3691019953250878"
           crossOrigin="anonymous"
         ></script>
+        <script
+          async
+          src="https://fundingchoicesmessages.google.com/i/pub-3691019953250878?ers=1"
+          nonce="CUTFYjkLxnucRToAXGZkEA"
+        ></script>
+        <script nonce="CUTFYjkLxnucRToAXGZkEA">
+          {` (function(){function signalGooglefcPresent() 
+            {if (!window.frames['googlefcPresent']) 
+            {if (document.body) {const iframe = document.createElement('iframe');
+             iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; 
+             iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; 
+             document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}
+             signalGooglefcPresent();
+             })();`}
+        </script>
       </head>
       <body className={`${inter.className} antialiased`}>
         {/* <!-- Google Tag Manager (noscript) --> */}
