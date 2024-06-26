@@ -36,6 +36,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5PMMKPWX');`}
         </Script>
         {/* <!-- End Google Tag Manager --> */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3691019953250878"
+          crossOrigin="anonymous"
+        ></script>
       </head>
       <body className={`${inter.className} antialiased`}>
         {/* <!-- Google Tag Manager (noscript) --> */}
