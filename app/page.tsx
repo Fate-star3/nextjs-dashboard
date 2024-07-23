@@ -5,7 +5,7 @@ import Image from 'next/image';
 import RootPage from '@/app/layout';
 import { ViewLog } from '@/app/components/log/viewLog';
 import { ClickLog } from '@/app/components/log/ClickLog';
-
+// user@nextmail.com 123456
 export default function Page() {
   return (
     <RootPage>

@@ -4,6 +4,7 @@ import NextHead from 'next/head';
 import Script from 'next/script';
 import { HTMLAttributes, PropsWithChildren } from 'react';
 import { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: 'Acme Dashboard',
@@ -36,17 +37,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5PMMKPWX');`}
         </Script>
         {/* <!-- End Google Tag Manager --> */}
-        <script
+        <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3691019953250878"
           crossOrigin="anonymous"
-        ></script>
-        <script
+        ></Script>
+        <Script
           async
           src="https://fundingchoicesmessages.google.com/i/pub-3691019953250878?ers=1"
           nonce="CUTFYjkLxnucRToAXGZkEA"
-        ></script>
-        <script nonce="CUTFYjkLxnucRToAXGZkEA">
+        ></Script>
+        <Script nonce="CUTFYjkLxnucRToAXGZkEA" id="google-ad">
           {` (function(){function signalGooglefcPresent() 
             {if (!window.frames['googlefcPresent']) 
             {if (document.body) {const iframe = document.createElement('iframe');
@@ -55,7 +56,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
              document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}
              signalGooglefcPresent();
              })();`}
-        </script>
+        </Script>
       </head>
       <body className={`${inter.className} antialiased`}>
         {/* <!-- Google Tag Manager (noscript) --> */}
@@ -69,6 +70,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         {/* <!-- End Google Tag Manager (noscript) --> */}
         {children}
+        <Analytics />
       </body>
     </html>
   );
