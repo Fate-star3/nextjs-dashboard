@@ -8,11 +8,11 @@ import {
   UserCircleIcon,
 } from '@heroicons/react/24/outline';
 import { Button } from '@/app/ui/button';
-import { createInvoice } from '@/app/lib/actions';
+import { createInvoice, type State } from '@/app/lib/actions';
 import { useFormState } from 'react-dom';
 
 export default function Form({ customers }: { customers: CustomerField[] }) {
-  const initialState = { message: null, errors: {} };
+  const initialState: State = { message: '', errors: {} };
   const [state, dispatch] = useFormState(createInvoice, initialState);
   return (
     <form action={dispatch}>
